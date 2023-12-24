@@ -342,7 +342,7 @@ line-height: 20px; /* 142.857% */
 
 
 .sygris-web-link {
-    position: absolute;
+    position: fixed;
     left: 15px;
     bottom: 13px;
     display: flex;
