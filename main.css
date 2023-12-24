@@ -17,6 +17,8 @@ body {
 }
 
 
+
+
 /* NAVIGATION */
 
 nav {
@@ -26,9 +28,10 @@ nav {
 }
 
 
-nav .logo:hover {
+nav .container header .logo img:hover {
     transform: scale(1.1);
 }
+
 nav .container {
     margin: 0 auto;
     padding: 8px 24px;
@@ -80,6 +83,7 @@ main {
     padding: 24px;
     margin-top: 40px;
     height: 683px;
+    position: relative;
 }
 
 .left-col {
@@ -98,19 +102,15 @@ main {
     margin-top: 24px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
     gap: 24px;
     max-height: 624px;
     overflow: auto;
-    -webkit-scrollbar {
-        display: none; 
-      }
-      scrollbar-width: none;
-      -ms-overflow-style: none; 
+  
 }
 
 .content-modules > .module {
     align-self: start;
+    height: auto;
   }
 
 
@@ -217,6 +217,12 @@ color: var(--clr-grey-primary);
     cursor: pointer;
 }
 
+.see-more-btn img {
+    transform: rotate(180deg); /* Rotate the icon 180 degrees */
+    transition: transform 0.3s; /* Adds a smooth transition effect */
+  }
+  
+
 .see-more-btn h2 {
     font-size: 16px;
 font-style: normal;
@@ -246,7 +252,7 @@ color: #5E5E5E;
     border-radius: 6px;
     padding: 12px 16px;
     color: white;
-
+    cursor: pointer;
 }
 
 .featured-sections-content .section h3 {
@@ -268,13 +274,23 @@ line-height: 20px;
     background-color: #29B1B3;
     grid-area: section1;
 }
+.section1:hover {
+    background-color: #21a3a5;
+}
+
 .section2 {
     grid-area: section2;
     background-color: #FF9505;
 }
+.section2:hover {
+    background-color: #e58703;
+}
 .section3 {
     grid-area: section3;
     background-color: #27147A;
+}
+.section3:hover {
+    background-color: #180a53;
 }
 
 
@@ -324,6 +340,63 @@ line-height: 20px; /* 142.857% */
     margin: 0;
 }
 
+
+.sygris-web-link {
+    position: absolute;
+    left: 15px;
+    bottom: 13px;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    width: 226px;
+height: 32px;
+text-decoration: none;
+color: var(--clr-grey-primary);
+cursor: pointer;
+}
+
+.sygris-web-link:hover {
+    transform: scale(1.04);
+}
+
+
+
+.sygris-web-link .icon, .sygris-web-link .quote {
+    background-color: var(--clr-dark-bg);
+}
+
+.sygris-web-link:hover .icon, 
+.sygris-web-link:hover .quote {
+    background-color: #c8d5db;
+}
+
+.sygris-web-link .quote  {
+    font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px;
+padding: 8px 14px;
+border-radius: 0px 6px 6px 0px;
+
+}
+.sygris-web-link .icon  {
+padding: 4px 4px 4px 6px;
+border-radius: 6px 0px 0px 6px;
+}
+
+
+.rotate {
+    transform: rotate(180deg); /* Rotates the element 180 degrees */
+    transition: transform 0.3s; /* Adds a smooth transition effect */
+  }
+
+.rotate-2 {
+    transform: rotate(-90deg); /* Rotates the element 180 degrees */
+    transition: transform 0.3s; /* Adds a smooth transition effect */
+  }
+
+
+
 @media screen and (max-width: 1200px) {
     
     main {
@@ -347,6 +420,69 @@ line-height: 20px; /* 142.857% */
     grid-template-columns: repeat(2, 1fr);
 }
 
+}
+
+
+@media screen and (max-width: 860px) {
+    
+    main {
+        grid-template-columns: repeat(2, 1fr);
+        height: 983px;
+    }
+
+
+
+
+
+.left-col {
+    grid-column: span 1;
+
+}
+.right-col {
+    grid-column: span 1;
+
+}
+
+.content-modules {
+    display: flex;
+    flex-direction: column;
+    max-height: 983px;
+    
+}
+
+.content-modules .module {
+    width: 100%;
+}
+
+}
+@media screen and (max-width: 600px) {
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+
+
+
+
+.left-col {
+    grid-column: span 1;
+
+}
+.right-col {
+    grid-column: span 1;
+    max-height: auto;
+}
+
+.content-modules {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    
+}
 
 
 }
+
