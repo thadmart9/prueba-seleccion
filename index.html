@@ -12,7 +12,9 @@
 <body>
     <nav>
         <div class="container">
-            <a href="#" class="logo"><img src="assets/logo.svg" alt=""></a>
+            <header>
+                <a href="#" class="logo"><img src="assets/logo.svg" alt=""></a>
+            </header>
             <ul class="menu">
                 <li>
                     <img src="assets/nav-separator.svg" alt="">
@@ -48,7 +50,7 @@
                             <div class="module-icon"><img src="assets/module-icon.svg" alt="seedling light"></div>
                             <h2>Módulo 1</h2>
                         </div>
-                        <div class="see-more-btn">
+                        <div class="see-more-btn-module">
                             <img src="assets/see-more-btn.svg" alt="ver más información">
                         </div>
                     </div>
@@ -97,7 +99,7 @@
                             <div class="module-icon"><img src="assets/module-icon.svg" alt="seedling light"></div>
                             <h2>Módulo 2</h2>
                         </div>
-                        <div class="see-more-btn">
+                        <div class="see-more-btn-module">
                             <img src="assets/see-more-btn.svg" alt="ver más información">
                         </div>
                     </div>
@@ -146,7 +148,7 @@
                             <div class="module-icon"><img src="assets/module-icon.svg" alt="seedling light"></div>
                             <h2>Módulo 3</h2>
                         </div>
-                        <div class="see-more-btn">
+                        <div class="see-more-btn-module">
                             <img src="assets/see-more-btn.svg" alt="ver más información">
                         </div>
                     </div>
@@ -195,7 +197,7 @@
                             <div class="module-icon"><img src="assets/module-icon.svg" alt="seedling light"></div>
                             <h2>Módulo 4</h2>
                         </div>
-                        <div class="see-more-btn">
+                        <div class="see-more-btn-module">
                             <img src="assets/see-more-btn.svg" alt="ver más información">
                         </div>
                     </div>
@@ -244,7 +246,7 @@
                             <div class="module-icon"><img src="assets/module-icon.svg" alt="seedling light"></div>
                             <h2>Módulo 5</h2>
                         </div>
-                        <div class="see-more-btn">
+                        <div class="see-more-btn-module">
                             <img src="assets/see-more-btn.svg" alt="ver más información">
                         </div>
                     </div>
@@ -294,7 +296,9 @@
             <img src="assets/ilustration.svg" alt="">
             <div class="texto-inf">
                 <div class="see-more-btn">
-                    <img src="assets/see-more-btn.svg" alt="">
+                    <div class="arrow-icon">
+                        <img src="assets/see-more-btn-right-col.svg" alt="">
+                    </div>
                     <h2>Texto informativo</h2>
                 </div>
                 <p class="texto-inf-content">
@@ -306,37 +310,43 @@
 
             <div class="featured-sections">
                 <div class="see-more-btn">
-                    <img src="assets/see-more-btn.svg" alt="">
+                    <div class="arrow-icon">
+                        <img src="assets/see-more-btn-right-col.svg" alt="">
+                    </div>
                     <h2>Secciones destacadas</h2>
                 </div>
-                <div class="featured-sections-content grid-content">
-                    <div class="section section1">
-                        <img src="assets/folder.svg" alt="">
-                        <h3 class="section-title">
-                            Sección 1
-                        </h3>
-                        <p>Lorem ipsum</p>
-                    </div>
-                    <div class="section section2">
-                        <img src="assets/folder.svg" alt="">
-                        <h3 class="section-title">
-                            Sección 2
-                        </h3>
-                        <p>Lorem ipsum</p>
-                    </div>
-                    <div class="section section3">
-                        <img src="assets/folder.svg" alt="">
-                        <h3 class="section-title">
-                            Sección 3
-                        </h3>
-                        <p>Lorem ipsum</p>
+                <div>
+                    <div class="featured-sections-content grid-content">
+                        <div class="section section1">
+                            <img src="assets/folder.svg" alt="">
+                            <h3 class="section-title">
+                                Sección 1
+                            </h3>
+                            <p>Lorem ipsum</p>
+                        </div>
+                        <div class="section section2">
+                            <img src="assets/folder.svg" alt="">
+                            <h3 class="section-title">
+                                Sección 2
+                            </h3>
+                            <p>Lorem ipsum</p>
+                        </div>
+                        <div class="section section3">
+                            <img src="assets/folder.svg" alt="">
+                            <h3 class="section-title">
+                                Sección 3
+                            </h3>
+                            <p>Lorem ipsum</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="cta-section">
                 <div class="see-more-btn">
-                    <img src="assets/see-more-btn.svg" alt="">
+                    <div class="arrow-icon">
+                        <img src="assets/see-more-btn-right-col.svg" alt="">
+                    </div>
                     <h2>Botones de acción</h2>
                 </div>
                 <div class="white-cta">
@@ -360,18 +370,31 @@
             </div>
         </div>
     </main>
+
+    <a class="sygris-web-link" href="#">
+        <div class="icon">
+            <img src="assets/sygris-alternate-logo.svg" alt="sygris-logo">
+        </div>
+        <div class="quote">
+            <p><strong>Sygris.</strong> Your data made simple</p>
+        </div>
+    </a>
 </body>
 <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-  // Function to toggle module display
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Function to toggle module display and rotate the see-more-btn
   function toggleModule(event) {
     // Finding the next sibling .module-links of the clicked .module-header
     var content = this.nextElementSibling;
+    var seeMoreBtn = this.querySelector('.see-more-btn-module img'); // Select the see-more-btn image within the clicked header
+
     // Toggle the display style
     if (content.style.display === 'block') {
       content.style.display = 'none';
+      seeMoreBtn.classList.remove('rotate'); // Remove the rotate class when content is hidden
     } else {
       content.style.display = 'block';
+      seeMoreBtn.classList.add('rotate'); // Add the rotate class to rotate the button
     }
   }
 
@@ -382,22 +405,37 @@
   });
 });
 
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Function to toggle content visibility and rotate the see-more-btn image
   function toggleContentVisibility() {
+    // Select the next sibling of the .see-more-btn (the content to show/hide)
     var content = this.nextElementSibling;
-    // Check if the content should display as a grid or block when visible
-    var displayStyle = content.classList.contains('grid-content') ? 'grid' : 'block';
-    
-    // Toggle the display style
-    content.style.display = content.style.display === displayStyle ? 'none' : displayStyle;
+
+    // Toggle the display of the content
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+
+    // Select the image inside the .arrow-icon, which is a child of .see-more-btn
+    var seeMoreIcon = this.querySelector('.arrow-icon');
+
+    // Toggle the rotate class to rotate the image
+    seeMoreIcon.classList.toggle('rotate-2');
   }
 
   // Attach the event listener to each .see-more-btn
-  var seeMoreButtons = document.querySelectorAll('.see-more-btn');
+  var seeMoreButtons = document.querySelectorAll('.right-col .see-more-btn');
   seeMoreButtons.forEach(button => {
     button.addEventListener('click', toggleContentVisibility);
   });
 });
+
+
+
+
+
+
+
+
 
 
 </script>
